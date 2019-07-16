@@ -1,6 +1,13 @@
+<!-- header-content -->
+<div class="header-content">
+    <h1>{{title}}</h1>
+</div>
+
+<!-- body-content -->
 <div class="body-content">
-    <div *ngFor="let article of articleService.articles" class="card-group">
-        <div class="card">
+    <span *ngIf="!articleService.articles">Il n'y a aucun article pour l'instant</span>
+    <div *ngIf="articleService.articles" class="card-group">
+        <div *ngFor="let article of articleService.articles" class="card">
             <div class="card-header">{{article.title}}</div>
         </div>
     </div>

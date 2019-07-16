@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '../api.service';
+import { ApiService } from '../api/api.service';
 import { Article } from 'src/app/models/article.model';
 
 @Injectable({
@@ -23,9 +23,9 @@ export class ArticleService {
 
   getArticles() {
     this.apiService.get(this.endpoint).subscribe((data) => {
-      console.log(data);
-      
-      // this.articles = data;
+      this.articles = data.json().map(x => {
+        return this.createArticle(x);
+      });      
     })
   }
 
@@ -34,7 +34,10 @@ export class ArticleService {
       article.id,
       article.title,
       article.content,
-      article.created_at
+      article.slug,
+      article.visibility,
+      article.created_at,
+      article.updated_at,
     );
   }
 }
