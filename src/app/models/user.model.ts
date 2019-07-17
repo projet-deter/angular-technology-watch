@@ -1,13 +1,9 @@
 import { Deserializable } from './deserializable.model';
-import { User } from './user.model';
 
-export class Article implements Deserializable {
+export class User implements Deserializable {
     id: number;
-    title: string;
-    content: string;
-    visibility: string;
-    user_id: number;
-    user: User;
+    email: string;
+    admin: boolean;
     created_at: string;
     updated_at: string;
 
