@@ -1,5 +1,6 @@
 import { Deserializable } from './deserializable.model';
 import { User } from './user.model';
+import { Category } from './category.model';
 
 export class Article implements Deserializable {
     id: number;
@@ -8,6 +9,7 @@ export class Article implements Deserializable {
     visibility: string;
     user_id: number;
     user: User;
+    categories: Category[];
     created_at: string;
     updated_at: string;
 
