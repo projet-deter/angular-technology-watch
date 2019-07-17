@@ -1,18 +1,15 @@
-export class Article {
+import { Deserializable } from './deserializable.model';
+
+export class Article implements Deserializable {
     id: number;
     title: string;
     content: string;
+    visibility: string;
     created_at: string;
+    updated_at: string;
 
-    constructor(
-        id: number,
-        title: string,
-        content: string,
-        created_at: string
-    ) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.created_at = created_at;
+    deserialize(input: any) {
+        Object.assign(this, input);
+        return this;
     }
 }

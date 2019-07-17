@@ -8,14 +8,15 @@ import { ArticleService } from 'src/app/services/article/article.service';
 })
 export class ArticlesComponent implements OnInit {
 
+  /**
+   * Title of the page
+   * @memberof ArticlesComponent
+   */
+  title = "Les articles";
+
   constructor(public articleService: ArticleService) { }
 
   ngOnInit() {
-    this.fetchArticles();
-  }
-
-  fetchArticles() {
     this.articleService.getArticles();
   }
-
 }
