@@ -9,7 +9,7 @@ export class ApiService {
    * URL pointing to the backend API
    * @memberof ApiService
    */
-  API_URL: string = "http://localhost:3000/api/v1/";
+  API_URL: string = "http://localhost:3000/";
 
   constructor(private _http: Http) { }
 
