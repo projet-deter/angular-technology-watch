@@ -1,0 +1,22 @@
+@import '../../../assets/colors';
+
+.logo {
+    padding: 1px;
+    border-radius: 30%;
+    background-color: $light;
+    color: $dark;
+}
+
+.header .search label::before {
+    margin-right: 8px;
+}
+
+.header .search label::before:hover {
+    color: $light;
+}
+
+@media screen and (max-width: 768px) {
+    .header .search label::before {
+        margin-right: 0;
+    }
+}
