@@ -1,0 +1,19 @@
+.card-group {
+    display: flex;
+}
+
+.card {
+    margin: 24px auto 0 auto;
+    width: 45%;
+    min-width: 300px;
+}
+
+@media screen and (max-width: 768px) {
+    .card-group {
+        display: block;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
