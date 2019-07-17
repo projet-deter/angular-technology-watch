@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/colors';
+
+body {
+    background-color: $white;
+}
+
+h1 {
+    margin-top: 12px;
+    font-weight: 400;
+    color: $dark;
+}
+
+.card {
+    background-color: $light;
+}
