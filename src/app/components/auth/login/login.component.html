@@ -1,0 +1,22 @@
+<!-- body-auth -->
+<div class="body-auth">
+    <!-- title-content -->
+    <div class="title-content">
+        <clr-icon class="logo" shape="eye"></clr-icon>
+        <h1 class="title">Technology Watch</h1>
+    </div>
+
+    <!-- form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input id="email" formControlName="email" type="text" placeholder="arya@stark.com" />
+        </div>
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input id="password" formControlName="password" type="password" placeholder="WinterIsComming!" />
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Se connecter</button>
+        <a routerLink="/register" routerLinkActive="active">Je n'ai pas encore de compte !</a>
+    </form>
+</div>
