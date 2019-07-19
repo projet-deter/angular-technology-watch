@@ -1,5 +1,9 @@
 <!-- header-content -->
 <div class="header-content">
+    <button class="btn btn-primary" (click)="openModalForm()">
+        <clr-icon shape="add"></clr-icon>
+        Ajouter
+    </button>
     <h1>{{title}}</h1>
 </div>
 
@@ -8,20 +12,34 @@
     <span *ngIf="!articleService.articles">Il n'y a aucun article pour l'instant</span>
     <div *ngIf="articleService.articles" class="card-group">
         <div *ngFor="let article of articleService.articles" class="card">
-            <!-- <div class="card-header"></div> -->
-            <div class="card-body">
+            <div class="card-header" (click)="showArticle(article)">
+                <p class="creator">{{article.userId}}</p>
+                <p class="update-date">{{article.updatedAt | date:'dd MMMM yyy'}}</p>
+            </div>
+            <div class="card-body" (click)="showArticle(article)">
                 <div class="card-block">
                     <div class="card-title">{{article.title}}</div>
-                    <div class="card-text">{{article.content}}</div>
+                    <div class="card-text">{{article.description}}</div>
                 </div>
+                <!-- <div class="card-block">
+                    <div class="card-text">{{article.body}}</div>
+                </div> -->
                 <div class="card-block" *ngFor="let category of article.categories">
                     <span class="label label-info">category.name</span>
                 </div>
             </div>
-            <div class="card-footer">
-                <div>{{article.user.getFullName()}}</div>
-                <div>{{article.updated_at | date:'dd/mm/yyy'}}</div>
+            <div *ngIf="isActions(article)" class="card-footer">
+                <button class="btn btn-outline-primary" (click)="openModalForm(article)">
+                    <clr-icon shape="pencil"></clr-icon>
+                </button>
+                <button class="btn btn-outline-danger" (click)="openModalDelete(article)">
+                    <clr-icon shape="trash"></clr-icon>
+                </button>
             </div>
         </div>
     </div>
 </div>
+
+<app-modal-form></app-modal-form>
+<app-modal-view></app-modal-view>
+<app-modal-delete></app-modal-delete>

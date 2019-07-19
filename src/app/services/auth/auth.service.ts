@@ -27,7 +27,8 @@ export class AuthService {
   login(email: string, password: string) {
     this.apiService.postAuth(this.loginEndpoint, {email, password}).then((res) => {
       this.apiService.ACCESS_TOKEN = res['access_token'];
-      this.currentUser = new User(res['id'], res['name'], res['email']);
+      this.apiService.headers = new HttpHeaders().set('Authorization', this.apiService.ACCESS_TOKEN);
+      this.currentUser = this.createUser(res);
       this.router.navigate(['/articles']);
     }).catch((err) => {
       console.error('Error : ' + err[0]);
@@ -46,5 +47,13 @@ export class AuthService {
     this.apiService.ACCESS_TOKEN = null;
     this.currentUser = null;
     this.router.navigate(['/login']);
+  }
+
+  createUser(data: any): User {
+    return new User(
+      data['id'],
+      data['name'],
+      data['email']
+    );
   }
 }

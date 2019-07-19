@@ -5,13 +5,35 @@ import { Category } from './category.model';
 export class Article implements Deserializable {
     id: number;
     title: string;
-    content: string;
-    visibility: string;
-    user_id: number;
+    description: string;
+    body: string;
+    userId: number;
     user: User;
     categories: Category[];
-    created_at: string;
-    updated_at: string;
+    createdAt: string;
+    updatedAt: string;
+
+    constructor(
+        id: number,
+        title: string,
+        description: string,
+        body: string,
+        userId: number,
+        user: User,
+        categories: Category[],
+        createdAt: string,
+        updatedAt: string
+    ) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.body = body;
+        this.userId = userId;
+        this.user = user;
+        this.categories = categories;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 
     deserialize(input: any) {
         Object.assign(this, input);

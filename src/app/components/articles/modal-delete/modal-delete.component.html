@@ -1,0 +1,8 @@
+<clr-modal [(clrModalOpen)]="articleService.openModalDelete">
+    <h3 class="modal-title">Supprimer un article</h3>
+    <div class="modal-body">Voulez-vous vraiment supprimer cet article ? Vous ne pourrez pas revenir en arrière.</div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" (click)="closeModal()">Annuler</button>
+        <button type="button" class="btn btn-danger" (click)="deleteArticle()">Supprimer</button>
+    </div>
+</clr-modal>
