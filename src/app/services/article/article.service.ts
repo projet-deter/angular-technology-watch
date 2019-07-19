@@ -50,10 +50,11 @@ export class ArticleService {
       'title': article.title,
       'description': article.description,
       'body': article.body,
+      'category_id': article.categoryId
     }
     this.apiService.post(this.endpoint, body).then((res) => {
-      console.log(res);
       console.log('Article created');
+      this.articles.push(this.createArticle(res));
     }).catch((err) => {
       console.error('Error : ' + err);
     });
@@ -64,10 +65,14 @@ export class ArticleService {
       'title': article.title,
       'description': article.description,
       'body': article.body,
+      'category_id': article.categoryId
     }
     this.apiService.patch(this.endpoint, article.id, body).then((res) => {
-      console.log(res);
       console.log('Article updated');
+      const article = this.createArticle(res);
+      // const item = this.articles.find(item => item === article);
+      const index = this.articles.indexOf(article);
+      this.articles[index] = article;
     }).catch((err) => {
       console.error('Error : ' + err);
     });
@@ -89,8 +94,9 @@ export class ArticleService {
       data['title'],
       data['description'],
       data['body'],
-      data['user_id'],
+      data['category_id'],
       null,
+      data['user_id'],
       null,
       data['created_at'],
       data['updated_at'],

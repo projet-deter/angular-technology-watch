@@ -3,8 +3,14 @@ import { Deserializable } from './deserializable.model';
 export class Category implements Deserializable {
     id: number;
     name: string;
-    created_at: string;
-    updated_at: string;
+
+    constructor(
+        id: number,
+        name: string
+    ) {
+        this.id = id;
+        this.name = name;
+    }
 
     deserialize(input: any) {
         Object.assign(this, input);
