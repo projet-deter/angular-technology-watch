@@ -7,9 +7,10 @@ export class Article implements Deserializable {
     title: string;
     description: string;
     body: string;
+    categoryId: number;
+    category: Category;
     userId: number;
     user: User;
-    categories: Category[];
     createdAt: string;
     updatedAt: string;
 
@@ -18,9 +19,10 @@ export class Article implements Deserializable {
         title: string,
         description: string,
         body: string,
+        categoryId: number,
+        category: Category,
         userId: number,
         user: User,
-        categories: Category[],
         createdAt: string,
         updatedAt: string
     ) {
@@ -28,9 +30,10 @@ export class Article implements Deserializable {
         this.title = title;
         this.description = description;
         this.body = body;
+        this.categoryId = categoryId;
+        this.category = category;
         this.userId = userId;
         this.user = user;
-        this.categories = categories;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }

@@ -13,6 +13,12 @@
             <div class="form-group">
                 <textarea formControlName="description" placeholder="Voici le contenu de mon article..."></textarea>
             </div>
+            <div class="form-group">
+                <select clrSelect formControlName="category">
+                    <option value="0" disabled hidden>Selectionner une catégorie</option>
+                    <option *ngFor="let category of categoryService.categories" [value]="category.id">{{category.name}}</option>
+                </select>
+            </div>
         </form>
     </div>
     <div class="modal-footer">
