@@ -1,10 +1,13 @@
-<clr-modal [(clrModalOpen)]="articleService.openModalForm">
+<!-- body-content -->
+<clr-modal class="modal-content" [(clrModalOpen)]="articleService.openModalForm">
+    <!-- modal-header -->
     <div class="modal-header">
         <button aria-label="Close" class="close" type="button">
             <clr-icon aria-hidden="true" shape="close"></clr-icon>
         </button>
         <h3 class="modal-title">{{articleService.article ? 'Modifier un article' : 'Créer un article'}}</h3>
     </div>
+    <!-- modal-body -->
     <div class="modal-body">
         <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
@@ -21,6 +24,7 @@
             </div>
         </form>
     </div>
+    <!-- modal-footer -->
     <div class="modal-footer">
         <button class="btn btn-outline" type="button" (click)="closeModal()">{{articleService.article ? 'Annuler' : 'Fermer'}}</button>
         <button class="btn btn-primary" type="button" (click)="onSubmit()">{{articleService.article ? 'Enregistrer' : 'Créer'}}</button>

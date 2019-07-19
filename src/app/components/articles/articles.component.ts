@@ -27,11 +27,6 @@ export class ArticlesComponent implements OnInit {
     this.articleService.openModalForm = true;
   }
 
-  openModalView(article: Article) {
-    this.articleService.article = article;
-    this.articleService.openModalView = true;
-  }
-
   openModalDelete(article: Article) {
     this.articleService.article = article;
     this.articleService.openModalDelete = true;
