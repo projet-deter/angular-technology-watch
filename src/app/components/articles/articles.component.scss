@@ -1,19 +1,66 @@
-.card-group {
-    display: flex;
+@import '../../../assets/colors';
+
+.header-content > button {
+    float: right;
 }
 
-.card {
-    margin: 24px auto 0 auto;
-    width: 45%;
-    min-width: 300px;
+.card-group {
+    display: flex;
+
+    .card {
+        margin: 12px;
+        width: 500px;
+        min-width: 300px;
+        height: 300px;
+
+        .card-header {
+            height: 50px;
+
+            p {
+                line-height: 1;
+            }
+
+            .creator {
+                font-size: 14px;
+                font-weight: bold;
+                color: $dark;
+            }
+
+            .update-date {
+                font-size: 11px;
+                font-style: italic;
+            }
+        }
+
+        .card-body {
+            height: calc(100% - 100px);
+            overflow: hidden;
+        }
+
+        .card-footer {
+            padding: 8px;
+            width: 100%;
+            height: 50px;
+            text-align: -webkit-right;
+
+            .btn:last-child {
+                margin: 0;
+            }
+        }
+
+        .card-header, .card-footer {
+            background-color: $light;
+        }
+    }
 }
 
 @media screen and (max-width: 768px) {
     .card-group {
         display: block;
-    }
 
-    .card {
-        width: 100%;
+        .card {
+            margin: 12px auto;
+            width: 100%;
+        }
     }
 }

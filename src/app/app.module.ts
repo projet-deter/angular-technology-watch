@@ -13,6 +13,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { ModalDeleteComponent } from './components/articles/modal-delete/modal-delete.component';
+import { ModalFormComponent } from './components/articles/modal-form/modal-form.component';
+import { ModalViewComponent } from './components/articles/modal-view/modal-view.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { RegisterComponent } from './components/auth/register/register.component
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    ModalDeleteComponent,
+    ModalFormComponent,
+    ModalViewComponent,
   ],
   imports: [
     BrowserModule,
