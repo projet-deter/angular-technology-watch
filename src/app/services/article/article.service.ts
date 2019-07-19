@@ -23,10 +23,14 @@ export class ArticleService {
   constructor(public apiService: ApiService) { }
 
   getArticles() {
-    this.apiService.get(this.endpoint).subscribe((data) => {
-      this.articles = data.json().map(d => {
-        return new Article().deserialize(d);
-      });      
+    this.apiService.get(this.endpoint).then((res) => {
+      console.log(res);
+      
+      // this.articles = data.json().map(d => {
+      //   return new Article().deserialize(d);
+      // });      
+    }).catch((err) => {
+      //
     });
   }
 }
