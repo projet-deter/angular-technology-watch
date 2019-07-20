@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './_helpers/auth.guard';
 
 import { ArticlesComponent } from './components/articles/articles.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
-import { AuthGuard } from './_helpers/auth.guard';
+import { CommentsComponent } from './components/comments/comments.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/articles', pathMatch: 'full' },    
       { path: 'articles', component: ArticlesComponent, canActivate: [AuthGuard] },
+      { path: 'articles/:id/comments', component: CommentsComponent, canActivate: [AuthGuard] },
     ]
   },
   // { path: 'profile', component: ProfileComponent },

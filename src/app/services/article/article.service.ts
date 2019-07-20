@@ -18,7 +18,6 @@ export class ArticleService {
    * @memberof ArticleService
    */
   openModalForm: boolean = false;
-  openModalView: boolean = false;
   openModalDelete: boolean = false;
 
   /**

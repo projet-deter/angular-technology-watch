@@ -12,11 +12,11 @@
     <span *ngIf="!articleService.articles">Il n'y a aucun article pour l'instant</span>
     <div *ngIf="articleService.articles" class="card-group">
         <div *ngFor="let article of articleService.articles" class="card">
-            <div class="card-header" (click)="openModalView(article)">
+            <div class="card-header" (click)="gotoComments(article)">
                 <p class="creator">{{article.userId}}</p>
                 <p class="update-date">{{article.updatedAt | date:'dd MMMM yyy'}}</p>
             </div>
-            <div class="card-body" (click)="openModalView(article)">
+            <div class="card-body" (click)="gotoComments(article)">
                 <div class="card-block">
                     <div class="card-title">{{article.title}}</div>
                     <div class="card-text">{{article.description}}</div>
